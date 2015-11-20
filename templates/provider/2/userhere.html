@@ -1,0 +1,34 @@
+<!-- <!DOCTYPE html> -->
+<!-- <html xmlns:th="http://www.thymeleaf.org"> -->
+<!-- <head> -->
+<!-- <title th:remove="all">Template for HTML email with inline image</title> -->
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
+<!-- </head> -->
+<!-- <body> -->
+<script th:inline="javascript">
+	var eventmap = /*[[${eventjson}]]*/ [];
+	var eventdata = JSON.parse(eventmap);
+</script>
+<div th:fragment="content">
+	<p th:text="${servicename}">service name</p>
+	<p th:text="${user.FamilyName}">user.FamilyName</p>
+	<p th:text="${user.userId}">user.userId</p>
+	<p th:text="${user.googleuserId}">user.googleuserId</p>
+	<p th:text="${#dates.format(user.lastCheckin)}">user.lastCheckin</p>
+	<p th:text="${user.givenName}">user.givenName</p>
+	<p th:text="${user.gender}">user.gender</p>
+	<p th:text="${user.locale}">user.locale</p>
+	<p th:text="${user.googleaccesstoken}">user.googleaccesstoken</p>
+	<p th:text="${user.link}">user.link</p>
+	<img src="sample.png" th:src="${user.picture}" />
+	<tr th:each="puser,iterationStatus : ${user.providers}">
+		<td th:text="${iterationStatus.count}">1</td>
+		<td th:text="${puser.provider.providerId}">001</td>
+		<td th:text="${puser.provider.name}">001</td>
+		<td th:text="${puser.provider.street}">Name</td>
+		<td th:text="${puser.provider.city}">City</td>
+		<td th:text="${puser.provider.country}">Country</td>
+	</tr>
+</div>
+<!-- </body> -->
+<!-- </HTML> -->
