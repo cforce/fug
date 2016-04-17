@@ -3,8 +3,8 @@
 	var eventdata = JSON.parse(eventmap);
 </script>
 <div th:fragment="content">
-	<p th:text="${servicename}">service name</p>
-	<p th:text="${user.FamilyName}">user.FamilyName</p>
+	<p th:text="${servicename}">servicename</p>
+	<p th:text="${user.familyName}">user.familyName</p>
 	<p th:text="${user.userId}">user.userId</p>
 	<p th:text="${user.googleuserId}">user.googleuserId</p>
 	<p th:text="${#dates.format(user.lastCheckin)}">user.lastCheckin</p>
