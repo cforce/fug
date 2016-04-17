@@ -1,10 +1,3 @@
-<!-- <!DOCTYPE html> -->
-<!-- <html xmlns:th="http://www.thymeleaf.org"> -->
-<!-- <head> -->
-<!-- <title th:remove="all">Template for HTML email with inline image</title> -->
-<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
-<!-- </head> -->
-<!-- <body> -->
 <script th:inline="javascript">
 	var eventmap = /*[[${eventjson}]]*/ [];
 	var eventdata = JSON.parse(eventmap);
@@ -21,14 +14,4 @@
 	<p th:text="${user.googleaccesstoken}">user.googleaccesstoken</p>
 	<p th:text="${user.link}">user.link</p>
 	<img src="sample.png" th:src="${user.picture}" />
-	<tr th:each="puser,iterationStatus : ${user.providers}">
-		<td th:text="${iterationStatus.count}">1</td>
-		<td th:text="${puser.provider.providerId}">001</td>
-		<td th:text="${puser.provider.name}">001</td>
-		<td th:text="${puser.provider.street}">Name</td>
-		<td th:text="${puser.provider.city}">City</td>
-		<td th:text="${puser.provider.country}">Country</td>
-	</tr>
 </div>
-<!-- </body> -->
-<!-- </HTML> -->
