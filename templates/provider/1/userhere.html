@@ -1,11 +1,12 @@
 <script th:inline="javascript">
 	var eventdatajson = /*[[${eventdatajson}]]*/ [];
 	var eventdata = /*[[${eventdata}]]*/;
-	var castservicename = /*[[${castservicename}]]*/;
+	var castservicenamevar = /*[[${castservicename}]]*/;
 	var devicelocation = /*[[${devicelocation}]]*/;
 </script>
 <div th:fragment="content">
-	<p th:text="${servicename}">servicename</p>
+	<p th:text="${castservicename}">castservicename</p>
+	<p th:text="${castservicenamevar}">castservicenamevar</p>
 	<p th:text="${user.familyName}">user.familyName</p>
 	<p th:text="${user.userId}">user.userId</p>
 	<p th:text="${user.googleuserId}">user.googleuserId</p>
