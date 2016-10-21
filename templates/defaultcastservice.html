@@ -1,3 +1,23 @@
+<script th:inline="javascript">
+	var myevent = /*[[${eventdata}]]*/;
+	var csn = /*[[${castservicename}]]*/;
+	var cst = /*[[${castservicetimeout}]]*/;
+	var devicelocation = /*[[${devicelocation}]]*/;
+</script>
 <div th:fragment="content">
-	<p>HURRA, wir sind ONLINE mit dem default cast service</p>
+	<p>This is the Youcast default Service. Configure your favorite services to see something else.</p>
+	<p><h2 th:text="${eventdata.type.name}">Checkin/Checkout</h2></p>
+	<p th:text="${devicelocation.locationName}">Where am I casting</p>
+	<p th:text="${castservicename}">castservicename</p>
+	
+	<p><h2 th:text="${eventdata.content.user.name}">username</h2></p>
+	<p th:text="${eventdata.content.user.familyName}">user.familyName</p>
+	<p th:text="${eventdata.content.user.userId}">user.userId</p>
+	<p th:text="${eventdata.content.user.googleuserId}">user.googleuserId</p>
+	<p th:text="${eventdata.content.user.givenName}">user.givenName</p>
+	<p th:text="${eventdata.content.user.gender}">user.gender</p>
+	<p th:text="${eventdata.content.user.locale}">user.locale</p>
+	<p th:text="${eventdata.content.user.googleaccesstoken}">user.googleaccesstoken</p>
+	<p th:text="${eventdata.content.user.link}">user.link</p>
+	<img src="sample.png" th:src="${eventdata.content.user.picture}" />
 </div>
