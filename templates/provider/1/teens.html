@@ -1,10 +1,7 @@
 <script th:inline="javascript">
-	var eventdatajson = /*[[${eventdatajson}]]*/ [];
 	var eventdata = /*[[${eventdata}]]*/;
-	var castservicenamevar = /*[[${castservicename}]]*/;
 	var devicelocation = /*[[${devicelocation}]]*/;
 </script>
 <div th:fragment="content">
 	<p th:text="${castservicename}">castservicename</p>
-	<p th:text="${castservicenamevar}">castservicenamevar</p>
 </div>

@@ -1,12 +1,12 @@
-<!-- <!DOCTYPE html> -->
-<!-- <html xmlns:th="http://www.thymeleaf.org"> -->
-<!-- <head> -->
-<!-- <title th:remove="all">Template for HTML email with inline image</title> -->
-<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
-<!-- </head> -->
-<!-- <body> -->
+<script th:inline="javascript">
+	var myevent = /*[[${eventdata}]]*/;
+	var csn = /*[[${castservicename}]]*/;
+	var cst = /*[[${castservicetimeout}]]*/;
+	var devicelocation = /*[[${devicelocation}]]*/;
+</script>
 <div th:fragment="content">
-	HURRA, wir sind ONLINE
-</div>
-<!-- </body> -->
-<!-- </HTML> -->
+	<p>HURRA, wir sind online: FIX: DeviceOnline.html / Provider 2</p>
+	<p><h2 th:text="${eventdata.type.name}">Checkin/Checkout</h2></p>
+	<p th:text="${devicelocation.locationName}">Where am I casting</p>
+	<p th:text="${castservicename}">castservicename</p>
+<div>

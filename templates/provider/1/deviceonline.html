@@ -1,3 +1,12 @@
+<script th:inline="javascript">
+	var myevent = /*[[${eventdata}]]*/;
+	var csn = /*[[${castservicename}]]*/;
+	var cst = /*[[${castservicetimeout}]]*/;
+	var devicelocation = /*[[${devicelocation}]]*/;
+</script>
 <div th:fragment="content">
-	<p>HURRA, wir sind ONLINE</p>
+	<p>This is the Youcast default Service. Configure your favorite services to see something else.</p>
+	<p><h2 th:text="${eventdata.type.name}">Checkin/Checkout</h2></p>
+	<p th:text="${devicelocation.locationName}">Where am I casting</p>
+	<p th:text="${castservicename}">castservicename</p>
 </div>
