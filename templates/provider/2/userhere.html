@@ -3,17 +3,75 @@
 	var csn = /*[[${castservicename}]]*/;
 	var cst = /*[[${castservicetimeout}]]*/;
 	var devicelocation = /*[[${devicelocation}]]*/;
+
+/*<![CDATA[*/
+	window.onload=function() {
+		document.write("******************************** EVENT: " +  myevent.type.name + "*************************");
+		if (myevent.type.name == "USER_CHECKIN")
+			document.body.style.backgroundColor = "#00AA00"
+		else if (myevent.type.name == "USER_CHECKOUT")
+			document.body.style.backgroundColor = "#AA0000"
+		else
+			document.body.style.backgroundColor = "#333377"
+	}		
+/*]]>*/
 </script>
-<div th:fragment="content">
+<div th:fragment="content" th:if="${eventdata.type.name == 'USER_CHECKIN'}" style="background-color:LawnGreen;">
+	<p>
+		<h1 th:if="${eventdata.content.user.locale == 'de'}" >Herzliche Willkommen</h1>
+		<h1 th:if="${eventdata.content.user.locale == 'en'}" >Lovely Welcome</h1>
+	</p>
+	
+	<span th:if="${eventdata.type.name == 'USER_CHECKIN'}" >Welcome</span>
+	<span th:if="${eventdata.type.name == 'USER_CHECKOUT'}" >Goodbye</span>
 	<p><h2 th:text="${eventdata.type.name}">Checkin/Checkout</h2></p>
-	<p th:text="${devicelocation.locationName}">Where am I casting</p>
-	<p th:text="${castservicename}">castservicename</p>
 	
 	<p><h2 th:text="${eventdata.content.user.name}">username</h2></p>
-	<p th:text="${eventdata.content.user.familyName}">user.familyName</p>
+	<table>
+		<tr>
+			<th>Service</th>
+			<th th:text="${castservicename}">castservice name</th>
+		</tr>
+		<tr>
+			<th>Device location</th>
+			<th th:text="${devicelocation.locationName}">where i am casting</th>
+		</tr>
+		<tr>
+			<th th:text="${eventdata.content.user.givenName}">user.Name</th>
+			<th th:text="${eventdata.content.user.familyName}">user.Name</th>
+		</tr>
+	</table>	
 	<p th:text="${eventdata.content.user.userId}">user.userId</p>
 	<p th:text="${eventdata.content.user.googleuserId}">user.googleuserId</p>
-	<p th:text="${eventdata.content.user.givenName}">user.givenName</p>
+	<p th:text="${eventdata.content.user.gender}">user.gender</p>
+	<p th:text="${eventdata.content.user.locale}">user.locale</p>
+	<p th:text="${eventdata.content.user.googleaccesstoken}">user.googleaccesstoken</p>
+	<p th:text="${eventdata.content.user.link}">user.link</p>
+	<img src="sample.png" th:src="${eventdata.content.user.picture}" />
+</div>
+
+<div th:fragment="content" th:if="${eventdata.type.name == 'USER_CHECKOUT'}" style="background-color:Crimson;">
+	<p>
+		<h1 th:if="${eventdata.content.user.locale == 'de'}" >Tschüsschen</h1>
+		<h1 th:if="${eventdata.content.user.locale == 'en'}" >bye bye</h1>
+	</p>
+	<p><h2 th:text="${eventdata.type.name}">Checkin/Checkout</h2></p>
+		<table>
+		<tr>
+			<th>Service</th>
+			<th th:text="${castservicename}">castservice name</th>
+		</tr>
+		<tr>
+			<th>Device location</th>
+			<th th:text="${devicelocation.locationName}">where i am casting</th>
+		</tr>
+		<tr>
+			<th th:text="${eventdata.content.user.givenName}">user.Name</th>
+			<th th:text="${eventdata.content.user.familyName}">user.Name</th>
+		</tr>
+	</table>	
+	<p th:text="${eventdata.content.user.userId}">user.userId</p>
+	<p th:text="${eventdata.content.user.googleuserId}">user.googleuserId</p>
 	<p th:text="${eventdata.content.user.gender}">user.gender</p>
 	<p th:text="${eventdata.content.user.locale}">user.locale</p>
 	<p th:text="${eventdata.content.user.googleaccesstoken}">user.googleaccesstoken</p>
