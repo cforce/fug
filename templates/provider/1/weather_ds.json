@@ -1,0 +1,20 @@
+{
+	"title": "Weather",
+	"type": "object",
+	"properties": {
+		"temperature": {
+			"type": "number"
+		},
+		"humidity": {
+		    "description": "humidity in percent",
+			"type": "number",
+			"minimum": 0,
+			"maximum": 100
+		},
+		"description": {
+			"description": "overall weather description",
+			"type": "string"
+		}
+	},
+	"required": ["temperature", "humidity"]
+}
