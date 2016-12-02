@@ -1,20 +1,25 @@
 {
-	"title": "Weather",
-	"type": "object",
-	"properties": {
-		"temperature": {
-			"type": "number"
-		},
-		"humidity": {
-		    "description": "humidity in percent",
-			"type": "number",
-			"minimum": 0,
-			"maximum": 100
-		},
-		"description": {
-			"description": "overall weather description",
-			"type": "string"
-		}
-	},
-	"required": ["temperature", "humidity"]
+  "id": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "weather shema",
+  "type": "object",
+  "properties": {
+    "temperature": {
+      "type": "number"
+    },
+    "humidity": {
+      "description": "humidity in percent",
+      "maximum": 100,
+      "type": "number",
+      "minimum": 0
+    },
+    "description": {
+      "description": "overall weather description",
+      "type": "string"
+    }
+  },
+  "required": [
+    "temperature",
+    "humidity"
+  ]
 }
